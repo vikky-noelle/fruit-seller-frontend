@@ -1,5 +1,10 @@
-if (fileExists('file')) {
-    echo 'Yes'
-} else {
-    echo 'No'
+pipeline {
+    agent { docker { image 'node:14-alpine' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'npm --version'
+            }
+        }
+    }
 }
